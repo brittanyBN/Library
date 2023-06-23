@@ -1,0 +1,61 @@
+@page "{id:int?}"
+@model Library.Pages.Books.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div style="margin: 45px;">
+<h1 style="margin-left: 105px;">Delete Book
+    <span class="visually-hidden">Delete book</span>
+</h1>
+<div>
+    <hr style="width: 450px;"/>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Book.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Book.Genre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book.Genre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Book.Author)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book.Author)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Book.Publisher)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book.Publisher)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Book.PublicationDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book.PublicationDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Book.Pages)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book.Pages)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Book.Id" />
+        <input type="submit" value="Delete" class="btn" style="background-color: rgba(240, 128, 128, 0.698); margin-top: 15px; margin-left: 180px;" /> 
+    </form>
+    <div>
+        <a class="btn" style="background-color: lightblue; margin-top: 15px; margin-left: 165px;" asp-page="Index">Back to List</a>
+    </div>
+</div>
+</div>

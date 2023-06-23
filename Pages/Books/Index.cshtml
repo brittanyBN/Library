@@ -1,0 +1,86 @@
+@page
+@model Library.Pages.Books.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div style="margin: 45px;">
+<h1 class="mt-4">Books <i class="bi bi-book" aria-hidden="true"></i>
+    <span class="visually-hidden">Books</span>
+</h1>
+
+<form class="mb-4">
+    <div class="row">
+        <div class="col-md-3">
+            <label for="bookGenre" class="visually-hidden">Book Genre</label>
+            <select id="bookGenre" class="form-select" asp-for="BookGenre" asp-items="Model.Genres">
+                <option value="">All</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <div class="input-group">
+                <label for="searchString" class="visually-hidden">Search by Title</label>
+                <input type="text" id="searchString" class="form-control" asp-for="SearchString" placeholder="Title" />
+                <button type="submit" class="btn rounded ms-2" style="background-color: lightblue;">Filter Books</button>
+                <a class="btn rounded ms-2" style="background-color: rgb(138, 191, 209);" asp-page="Create">Add New Book</a>
+            </div>           
+        </div>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Book[0].Title)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Book[0].Genre)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Book[0].Author)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Book[0].Publisher)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Book[0].PublicationDate)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Book[0].Pages)
+            </th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Book) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Publisher)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublicationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pages)
+                </td>
+                <td>
+                    <a class="btn" style="background-color: rgb(243, 239, 179);" asp-page="./Edit" asp-route-id="@item.Id">Edit Book</a>
+                    <a class="btn" style="background-color: lightblue; margin-left: 3px; margin-right: 3px;" asp-page="./Details" asp-route-id="@item.Id">View Details</a>
+                    <a class="btn" style="background-color: rgba(240, 128, 128, 0.698);" asp-page="./Delete" asp-route-id="@item.Id">Delete Book</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,64 @@
+@page "{id:int?}"
+@model Library.Pages.Books.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div style="margin: 45px;">
+<h1 style="margin-left: 145px;">Edit Book<span class="visually-hidden">Edit Book</span>
+</h1>
+
+<hr style="width: 490px;"/>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Book.Id" />
+            <div class="form-group">
+                <label asp-for="Book.Title" class="control-label"></label>
+                <input asp-for="Book.Title" class="form-control" />
+                <span asp-validation-for="Book.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book.Genre" class="control-label"></label>
+                <input asp-for="Book.Genre" class="form-control" />
+                <span asp-validation-for="Book.Genre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book.Author" class="control-label"></label>
+                <input asp-for="Book.Author" class="form-control" />
+                <span asp-validation-for="Book.Author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book.Publisher" class="control-label"></label>
+                <input asp-for="Book.Publisher" class="form-control" />
+                <span asp-validation-for="Book.Publisher" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book.PublicationDate" class="control-label"></label>
+                <input asp-for="Book.PublicationDate" class="form-control" />
+                <span asp-validation-for="Book.PublicationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book.Pages" class="control-label"></label>
+                <input asp-for="Book.Pages" class="form-control" />
+                <span asp-validation-for="Book.Pages" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Save changes"></label>
+                <input type="submit" value="Save" class="btn" style="background-color: rgb(243, 239, 179); margin-top: 15px; margin-left: 190px;" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn" style="background-color: lightblue; margin-top: 15px; margin-left: 175px;" asp-page="Index">Back to List</a>
+</div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
